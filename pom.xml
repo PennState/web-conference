@@ -87,8 +87,8 @@
 
 	<url>https://ci.psu.edu/swe/web-conference</url>
 	<scm>
-		<connection>scm:git:ssh://git@ci.psu.edu:1022/web-conference.git</connection>
-		<developerConnection>scm:git:ssh://git@ci.psu.edu:1022/web-conference.git</developerConnection>
+		<connection>scm:git:ssh://git@github/web-conference.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/web-conference.git</developerConnection>
 		<url>https:/ci.psu.edu/web-conference</url>
 	</scm>
 </project>
