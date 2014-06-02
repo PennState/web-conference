@@ -18,7 +18,7 @@
     <modules>   
         <module>web-conference-common</module>
         <module>web-conference-web</module>
-        <module>web-conference-client</module>
+<!--         <module>web-conference-client</module> -->
     </modules>
 
     <properties>
