@@ -1,5 +1,12 @@
 package edu.psu.javaee.web.conference.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Embeddable
 public class Name
 {
   public enum HonorificPrefix
@@ -35,12 +42,26 @@ public class Name
     NONE
   }
   
+  @Column(name="HONORIFIC_PREFIX")
   private HonorificPrefix honorificPrefix_;
+  
+  @Column(name="PREFIX")
   private Prefix prefix_;
+  
+  @Column(name="FIRST_NAME")
   private String firstName_;
+  
+  @Column(name="MIDDLE_NAME")
   private String middleName_;
+  
+  @Column(name="LAST_NAME")
+  @NotNull
   private String lastName_;
+  
+  @Column(name="SUFFIX")
   private Suffix suffix_;
+  
+  @Column(name="HONORIFIC_SUFFIX")
   private HonorificSuffix honorificSuffix_;
 
   public HonorificPrefix getHonorificPrefix()

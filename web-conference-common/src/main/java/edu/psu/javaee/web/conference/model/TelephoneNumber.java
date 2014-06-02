@@ -1,7 +1,13 @@
 package edu.psu.javaee.web.conference.model;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
+import edu.psu.javaee.web.conference.model.Person;
 
 public class TelephoneNumber
 {
@@ -17,13 +23,22 @@ public class TelephoneNumber
   @Column(name="id")
   private long id_;
   
+  @Column(name="COUNTRY_CODE")
   private String countryCode_;
   
+  @Column(name="PHONE_NUMBER")
   private String phoneNumber_;
   
+  @Column(name="TYPE")
   private Type phoneNumberType_;
   
+  @Column(name="IS_PRIMARY")
   private boolean primary_;
+  
+  @JoinColumn(name = "ID")
+  @ManyToOne(fetch = FetchType.LAZY)
+  @NotNull
+  private Person person_;
   
   public String getCountryCode()
   {

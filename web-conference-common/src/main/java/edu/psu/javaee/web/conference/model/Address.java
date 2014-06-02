@@ -1,5 +1,14 @@
 package edu.psu.javaee.web.conference.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Address
 {
   public enum Type
@@ -10,13 +19,35 @@ public class Address
     NONE
   }
   
+  @Id
+  @Column(name="ADDRESS_ID")
+  private long addressId_;
+  
+  @Column(name="ADDRESS_TYPE")
   private Type addressType_;
+  
+  @Column(name="STREET_ADDRESS1")
   private String streetAddress1_;
+  
+  @Column(name="STREET_ADDERSS2")
   private String streetAddress2_;
-  private String region_; 
+  
+  @Column(name="REGION")
+  private String region_;
+  
+  @Column(name="COUNTRY")
   private String country_;
+  
+  @Column(name="POSTAL_CODE")
   private String postalCode_;
+  
+  @Column(name="IS_PRIMARY")
   private boolean primary_;
+  
+  @JoinColumn(name = "ID")
+  @ManyToOne(fetch = FetchType.LAZY)
+  @NotNull
+  private Person person_;
   
   public Type getType()
   {

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -13,16 +14,16 @@ import javax.persistence.OneToMany;
 public class Person
 { 
   @Id
-  @Column(name="id")
+  @Column(name="ID")
   private long id_;
   
   @Embedded
   private Name name_;
   
-  @OneToMany
+  @OneToMany(mappedBy = person_, fetch=FetchType.EAGER)
   private List<Address> addressList_ = new ArrayList<>();
   
-  @OneToMany
+  @OneToMany(mappedBy = person_, fetch=FetchType.EAGER)
   private List<TelephoneNumber> telephoneNumberList_ = new ArrayList<>();
   
   public List<Address> getAddressList()
