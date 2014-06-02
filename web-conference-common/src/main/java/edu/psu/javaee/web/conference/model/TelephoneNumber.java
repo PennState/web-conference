@@ -1,14 +1,16 @@
 package edu.psu.javaee.web.conference.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import edu.psu.javaee.web.conference.model.Person;
-
+@Entity
+@Table(name="TELEPHONE_NUMBER")
 public class TelephoneNumber
 {
   public enum Type
