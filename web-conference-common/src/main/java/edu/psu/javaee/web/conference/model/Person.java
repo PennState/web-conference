@@ -20,10 +20,10 @@ public class Person
   @Embedded
   private Name name_;
   
-  @OneToMany(mappedBy = person_, fetch=FetchType.EAGER)
+  @OneToMany(mappedBy = "person_", fetch=FetchType.EAGER)
   private List<Address> addressList_ = new ArrayList<>();
   
-  @OneToMany(mappedBy = person_, fetch=FetchType.EAGER)
+  @OneToMany(mappedBy = "person_", fetch=FetchType.EAGER)
   private List<TelephoneNumber> telephoneNumberList_ = new ArrayList<>();
   
   public List<Address> getAddressList()
