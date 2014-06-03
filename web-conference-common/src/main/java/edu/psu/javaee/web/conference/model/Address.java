@@ -3,6 +3,8 @@ package edu.psu.javaee.web.conference.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,7 +23,7 @@ public class Address
     NONE
   }
   
-  @Id
+  @Id @GeneratedValue(strategy=GenerationType.AUTO)
   @Column(name="ADDRESS_ID")
   private long addressId_;
   
@@ -50,6 +52,11 @@ public class Address
   @ManyToOne(fetch = FetchType.LAZY)
   @NotNull
   private Person person_;
+  
+  public long getId()
+  {
+    return addressId_;
+  }
   
   public Type getType()
   {

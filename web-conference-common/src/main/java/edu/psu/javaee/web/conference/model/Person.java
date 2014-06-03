@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -15,7 +17,7 @@ import javax.persistence.Table;
 @Table(name="PERSON")
 public class Person
 { 
-  @Id
+  @Id @GeneratedValue(strategy=GenerationType.AUTO)
   @Column(name="ID")
   private long id_;
   
