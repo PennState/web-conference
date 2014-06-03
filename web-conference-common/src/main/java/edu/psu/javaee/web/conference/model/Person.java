@@ -12,22 +12,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="PERSON")
+@XmlRootElement(name="person")
+@XmlAccessorType(XmlAccessType.NONE)
 public class Person
 { 
   @Id @GeneratedValue(strategy=GenerationType.AUTO)
   @Column(name="ID")
+  @XmlElement(name="id")
   private long id_;
   
   @Embedded
+  @XmlElement(name="name")
   private Name name_;
   
   @OneToMany(mappedBy = "person_", fetch=FetchType.EAGER)
+  @XmlElementWrapper(name="address-list")
   private List<Address> addressList_ = new ArrayList<>();
   
   @OneToMany(mappedBy = "person_", fetch=FetchType.EAGER)
+  @XmlElementWrapper(name="telephone-number-list")
   private List<TelephoneNumber> telephoneNumberList_ = new ArrayList<>();
   
   public List<Address> getAddressList()

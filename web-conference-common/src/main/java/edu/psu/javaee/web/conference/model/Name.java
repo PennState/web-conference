@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
 
 @Entity
 @Embeddable
@@ -43,25 +44,32 @@ public class Name
   }
   
   @Column(name="HONORIFIC_PREFIX")
+  @XmlElement(name="honorific-prefix")
   private HonorificPrefix honorificPrefix_;
   
   @Column(name="PREFIX")
+  @XmlElement(name="prefix")
   private Prefix prefix_;
   
   @Column(name="FIRST_NAME")
+  @XmlElement(name="first-name")
   private String firstName_;
   
   @Column(name="MIDDLE_NAME")
+  @XmlElement(name="middle-name")
   private String middleName_;
   
   @Column(name="LAST_NAME")
   @NotNull
+  @XmlElement(name="last-name", nillable=false)
   private String lastName_;
   
   @Column(name="SUFFIX")
+  @XmlElement(name="first-name")
   private Suffix suffix_;
   
   @Column(name="HONORIFIC_SUFFIX")
+  @XmlElement(name="honorific-suffix")
   private HonorificSuffix honorificSuffix_;
 
   public HonorificPrefix getHonorificPrefix()

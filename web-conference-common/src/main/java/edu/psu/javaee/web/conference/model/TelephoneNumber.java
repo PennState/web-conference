@@ -10,9 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="TELEPHONE_NUMBER")
+@XmlRootElement(name="telephone-number")
+@XmlAccessorType(XmlAccessType.NONE)
 public class TelephoneNumber
 {
   public enum Type
@@ -25,18 +31,23 @@ public class TelephoneNumber
   
   @Id @GeneratedValue(strategy=GenerationType.AUTO)
   @Column(name="id")
+  @XmlElement(name="id")
   private long id_;
   
   @Column(name="COUNTRY_CODE")
+  @XmlElement(name="country-code")
   private String countryCode_;
   
   @Column(name="PHONE_NUMBER")
+  @XmlElement(name="phone-number")
   private String phoneNumber_;
   
   @Column(name="TYPE")
+  @XmlElement(name="type")
   private Type phoneNumberType_;
   
   @Column(name="IS_PRIMARY")
+  @XmlElement(name="primary")
   private boolean primary_;
   
   @JoinColumn(name = "ID")

@@ -10,9 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="ADDRESS")
+@XmlRootElement(name="address")
+@XmlAccessorType(XmlAccessType.NONE)
 public class Address
 {
   public enum Type
@@ -25,28 +31,36 @@ public class Address
   
   @Id @GeneratedValue(strategy=GenerationType.AUTO)
   @Column(name="ADDRESS_ID")
+  @XmlElement(name="id")
   private long addressId_;
   
   @Column(name="ADDRESS_TYPE")
+  @XmlElement(name="type")
   private Type addressType_;
   
   @Column(name="STREET_ADDRESS1")
+  @XmlElement(name="street-address1", nillable=true)
   private String streetAddress1_;
   
-  @Column(name="STREET_ADDERSS2")
+  @Column(name="STREET_ADDRESS2")
+  @XmlElement(name="street-address2", nillable=true)
   private String streetAddress2_;
   
   @Column(name="REGION")
+  @XmlElement(name="region", nillable=true)
   private String region_;
   
   @Column(name="COUNTRY")
+  @XmlElement(name="country", nillable=true)
   private String country_;
   
   @Column(name="POSTAL_CODE")
+  @XmlElement(name="postal-code", nillable=true)
   private String postalCode_;
   
   @Column(name="IS_PRIMARY")
-  private boolean primary_;
+  @XmlElement(name="primary")
+  private boolean primary_ = false;
   
   @JoinColumn(name = "ID")
   @ManyToOne(fetch = FetchType.LAZY)
