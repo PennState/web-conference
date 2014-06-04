@@ -26,7 +26,7 @@ public class Address
     HOME,
     LOCAL,
     WORK,
-    NONE
+    OTHER
   }
   
   @Id @GeneratedValue(strategy=GenerationType.AUTO)

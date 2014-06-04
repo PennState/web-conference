@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -20,6 +22,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="PERSON")
+@NamedQueries({
+  @NamedQuery(name = "Person.getPersonByName", query = "SELECT p FROM Person p WHERE p.firstName_ = :firstName AND p.lastName_ = :lastName")
+})
 @XmlRootElement(name="person")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Person
