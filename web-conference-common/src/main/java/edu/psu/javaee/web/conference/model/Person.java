@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name="PERSON")
 @NamedQueries({
-  @NamedQuery(name = "Person.getPersonByName", query = "SELECT p FROM Person p WHERE p.firstName_ = :firstName AND p.lastName_ = :lastName")
+  @NamedQuery(name = "Person.getPersonByName", query = "SELECT p FROM Person p WHERE p.name_.firstName_ = :firstName AND p.name_.lastName_ = :lastName")
 })
 @XmlRootElement(name="person")
 @XmlAccessorType(XmlAccessType.NONE)

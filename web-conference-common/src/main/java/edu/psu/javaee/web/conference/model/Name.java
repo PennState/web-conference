@@ -2,11 +2,9 @@ package edu.psu.javaee.web.conference.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 
-@Entity
 @Embeddable
 public class Name
 {
