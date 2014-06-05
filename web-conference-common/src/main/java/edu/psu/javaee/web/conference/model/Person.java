@@ -20,11 +20,14 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
+//JPA
 @Entity
 @Table(name="PERSON")
 @NamedQueries({
   @NamedQuery(name = "Person.getPersonByName", query = "SELECT p FROM Person p WHERE p.name_.firstName_ = :firstName AND p.name_.lastName_ = :lastName")
 })
+
+//JAXB
 @XmlRootElement(name="person")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Person

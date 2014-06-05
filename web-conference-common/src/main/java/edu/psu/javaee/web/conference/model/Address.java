@@ -2,6 +2,8 @@ package edu.psu.javaee.web.conference.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,6 +37,7 @@ public class Address
   private long addressId_;
   
   @Column(name="ADDRESS_TYPE")
+  @Enumerated(EnumType.STRING)
   @XmlElement(name="type")
   private Type addressType_;
   

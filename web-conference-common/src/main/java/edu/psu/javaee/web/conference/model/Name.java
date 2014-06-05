@@ -2,6 +2,8 @@ package edu.psu.javaee.web.conference.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 
@@ -42,10 +44,12 @@ public class Name
   }
   
   @Column(name="HONORIFIC_PREFIX")
+  @Enumerated(EnumType.STRING)
   @XmlElement(name="honorific-prefix")
   private HonorificPrefix honorificPrefix_;
   
   @Column(name="PREFIX")
+  @Enumerated(EnumType.STRING)
   @XmlElement(name="prefix")
   private Prefix prefix_;
   
@@ -63,10 +67,12 @@ public class Name
   private String lastName_;
   
   @Column(name="SUFFIX")
+  @Enumerated(EnumType.STRING)
   @XmlElement(name="first-name")
   private Suffix suffix_;
   
   @Column(name="HONORIFIC_SUFFIX")
+  @Enumerated(EnumType.STRING)
   @XmlElement(name="honorific-suffix")
   private HonorificSuffix honorificSuffix_;
 

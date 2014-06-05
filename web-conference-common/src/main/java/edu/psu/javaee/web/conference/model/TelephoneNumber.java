@@ -2,6 +2,8 @@ package edu.psu.javaee.web.conference.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,6 +45,7 @@ public class TelephoneNumber
   private String phoneNumber_;
   
   @Column(name="TYPE")
+  @Enumerated(EnumType.STRING)
   @XmlElement(name="type")
   private Type phoneNumberType_;
   
