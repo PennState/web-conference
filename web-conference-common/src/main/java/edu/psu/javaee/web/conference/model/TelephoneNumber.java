@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.NONE)
 public class TelephoneNumber
 {
-  public enum Type
+  public enum TelephoneNumberType
   {
     HOME,
     WORK,
@@ -32,8 +32,8 @@ public class TelephoneNumber
   }
   
   @Id @GeneratedValue(strategy=GenerationType.AUTO)
-  @Column(name="id")
-  @XmlElement(name="id")
+  @Column(name="telephone_id")
+  @XmlElement(name="telephone-id")
   private long id_;
   
   @Column(name="COUNTRY_CODE")
@@ -47,7 +47,7 @@ public class TelephoneNumber
   @Column(name="TYPE")
   @Enumerated(EnumType.STRING)
   @XmlElement(name="type")
-  private Type phoneNumberType_;
+  private TelephoneNumberType phoneNumberType_;
   
   @Column(name="IS_PRIMARY")
   @XmlElement(name="primary")
@@ -68,7 +68,7 @@ public class TelephoneNumber
     return phoneNumber_;
   }
   
-  public Type getPhoneNumberType()
+  public TelephoneNumberType getPhoneNumberType()
   {
     return phoneNumberType_;
   }
@@ -88,7 +88,7 @@ public class TelephoneNumber
     phoneNumber_ = phoneNumber;
   }
   
-  public void setPhoneNumberType(Type phoneNumberType)
+  public void setPhoneNumberType(TelephoneNumberType phoneNumberType)
   {
     phoneNumberType_ = phoneNumberType;
   }

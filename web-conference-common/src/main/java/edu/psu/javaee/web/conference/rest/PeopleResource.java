@@ -15,11 +15,13 @@ public interface PeopleResource
 {
   @GET
   @Produces({"application/xml", "application/json"})
+  @Path("{pid}")
   Person getPerson(@PathParam("pid") long pid);
   
-  @GET
-  @Produces("application/vnd-psu-v1+json")
-  Person getPsuPerson(@PathParam("pid") long pid);
+//  @GET
+//  @Produces("application/vnd-psu-v1+json")
+//  @Path("{pid}")
+//  Person getPsuPerson(@PathParam("pid") long pid);
   
   @GET
   @Produces("application/json")

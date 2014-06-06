@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Address
 {
-  public enum Type
+  public enum AddressType
   {
     HOME,
     LOCAL,
@@ -39,7 +39,7 @@ public class Address
   @Column(name="ADDRESS_TYPE")
   @Enumerated(EnumType.STRING)
   @XmlElement(name="type")
-  private Type addressType_;
+  private AddressType addressType_;
   
   @Column(name="STREET_ADDRESS1")
   @XmlElement(name="street-address1", nillable=true)
@@ -75,12 +75,12 @@ public class Address
     return addressId_;
   }
   
-  public Type getType()
+  public AddressType getType()
   {
     return addressType_;
   }
   
-  public void setAddressType(Type addressType)
+  public void setAddressType(AddressType addressType)
   {
     addressType_ = addressType;
   }

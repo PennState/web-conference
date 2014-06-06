@@ -9,10 +9,15 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import edu.psu.javaee.web.conference.model.Person;
 
 public class PeopleResourceImpl implements PeopleResource
 {
+  private static final Logger LOGGER = LoggerFactory.getLogger(PeopleResourceImpl.class);
+  
   @PersistenceContext(name = "webconference-ds")
   private EntityManager entityManager_;
 
@@ -56,10 +61,12 @@ public class PeopleResourceImpl implements PeopleResource
   //content negotiation
   private Person getPersonLocal(long pid)
   {
+    LOGGER.info("Attempting to retrieve a person with id " + pid); 
     Person p = entityManager_.find(Person.class, pid);
 
     if (p == null)
     {
+      LOGGER.info("No peson with id " + pid + " was found"); 
       throw new WebApplicationException(Status.NOT_FOUND);
     }
 

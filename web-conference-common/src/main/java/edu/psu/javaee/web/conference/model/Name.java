@@ -5,9 +5,14 @@ import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Embeddable
+@XmlRootElement(name="name")
+@XmlAccessorType(XmlAccessType.NONE)
 public class Name
 {
   public enum HonorificPrefix
@@ -68,7 +73,7 @@ public class Name
   
   @Column(name="SUFFIX")
   @Enumerated(EnumType.STRING)
-  @XmlElement(name="first-name")
+  @XmlElement(name="suffix")
   private Suffix suffix_;
   
   @Column(name="HONORIFIC_SUFFIX")

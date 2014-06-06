@@ -6,20 +6,14 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-import edu.psu.javaee.web.conference.model.Name;
-import edu.psu.javaee.web.conference.model.Person;
-import edu.psu.javaee.web.conference.model.TelephoneNumber;
-
 @ApplicationPath("api")
 public class PersonApplication extends Application
 {
-  private Set<Class<?>> clazzes_ = new HashSet<>();
+  private static Set<Class<?>> clazzes_ = new HashSet<>();
   
+  static 
   {
-    clazzes_.add(Person.class);
-    clazzes_.add(Name.class);
-    clazzes_.add(TelephoneNumber.class);
-    clazzes_.add(Name.class);
+    clazzes_.add(PeopleResourceImpl.class);
   }
   
   public Set<Class<?>> getClasses()
