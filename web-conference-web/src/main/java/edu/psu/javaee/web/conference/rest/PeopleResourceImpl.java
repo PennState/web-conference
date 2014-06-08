@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import edu.psu.javaee.web.conference.model.Person;
+import edu.psu.javaee.web.conference.model.PersonV2;
 
 public class PeopleResourceImpl implements PeopleResource
 {
@@ -23,12 +24,30 @@ public class PeopleResourceImpl implements PeopleResource
 
   public Person getPerson(long pid)
   {
-    return getPersonLocal(pid);
+    LOGGER.info("Attempting to retrieve a person with id " + pid); 
+    Person p = entityManager_.find(Person.class, pid);
+
+    if (p == null)
+    {
+      LOGGER.info("No peson with id " + pid + " was found"); 
+      throw new WebApplicationException(Status.NOT_FOUND);
+    }
+
+    return p;
   }
   
-  public Person getPsuPerson(long pid)
+  public PersonV2 getPsuPerson(long pid)
   {
-    return getPersonLocal(pid);
+    LOGGER.info("Attempting to retrieve a person with id " + pid); 
+    PersonV2 p = entityManager_.find(PersonV2.class, pid);
+
+    if (p == null)
+    {
+      LOGGER.info("No peson with id " + pid + " was found"); 
+      throw new WebApplicationException(Status.NOT_FOUND);
+    }
+
+    return p;
   }
 
   public void createPerson(Person p)
@@ -55,21 +74,5 @@ public class PeopleResourceImpl implements PeopleResource
     }
     
     return results;
-  }
-  
-  //I realize that this is unnecessary,this is only intended to illustrate
-  //content negotiation
-  private Person getPersonLocal(long pid)
-  {
-    LOGGER.info("Attempting to retrieve a person with id " + pid); 
-    Person p = entityManager_.find(Person.class, pid);
-
-    if (p == null)
-    {
-      LOGGER.info("No peson with id " + pid + " was found"); 
-      throw new WebApplicationException(Status.NOT_FOUND);
-    }
-
-    return p;
   }
 }

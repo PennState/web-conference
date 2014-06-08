@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -21,8 +22,8 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 //JPA
-@Entity
 @Table(name="PERSON")
+@MappedSuperclass
 @NamedQueries({
   @NamedQuery(name = "Person.getPersonByName", query = "SELECT p FROM Person p WHERE p.name_.firstName_ = :firstName AND p.name_.lastName_ = :lastName")
 })

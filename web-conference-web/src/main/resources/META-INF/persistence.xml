@@ -24,6 +24,7 @@
 		<class>edu.psu.javaee.web.conference.model.TelephoneNumber</class>
 		<class>edu.psu.javaee.web.conference.model.Address</class>
 		<class>edu.psu.javaee.web.conference.model.Name</class>
+		<class>edu.psu.javaee.web.conference.model.Vehicle</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<!-- Properties for Hibernate -->

@@ -9,7 +9,7 @@ import edu.psu.javaee.web.conference.model.Person;
 
 public class PeopleResourceClientTest
 {
-  private static final String URL = "http://localhost:8080/directory-service-web/api/directory-service-web/api/";
+  private static final String URL = "http://localhost:8080/web-conference-web/api/";
 
   private PeopleResourceClient client_;
   

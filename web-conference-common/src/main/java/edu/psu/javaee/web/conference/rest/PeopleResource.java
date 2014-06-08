@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import edu.psu.javaee.web.conference.model.Person;
+import edu.psu.javaee.web.conference.model.PersonV2;
 
 @Path("people")
 public interface PeopleResource
@@ -18,10 +19,10 @@ public interface PeopleResource
   @Path("{pid}")
   Person getPerson(@PathParam("pid") long pid);
   
-//  @GET
-//  @Produces("application/vnd-psu-v1+json")
-//  @Path("{pid}")
-//  Person getPsuPerson(@PathParam("pid") long pid);
+  @GET
+  @Produces("application/vnd-psu-v2+json")
+  @Path("{pid}")
+  PersonV2 getPsuPerson(@PathParam("pid") long pid);
   
   @GET
   @Produces("application/json")
