@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -31,7 +32,8 @@ public class TelephoneNumber
     OTHER
   }
   
-  @Id @GeneratedValue(strategy=GenerationType.AUTO)
+  @SequenceGenerator(name="telephone-number-sequence", initialValue=10, allocationSize=100)
+  @Id @GeneratedValue(generator="telephone-number-sequence", strategy=GenerationType.AUTO)
   @Column(name="telephone_id")
   @XmlElement(name="telephone-id")
   private long id_;

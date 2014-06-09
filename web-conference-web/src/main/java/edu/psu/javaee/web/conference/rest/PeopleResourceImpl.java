@@ -2,6 +2,7 @@ package edu.psu.javaee.web.conference.rest;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import edu.psu.javaee.web.conference.model.Person;
 
+@Stateless
 public class PeopleResourceImpl implements PeopleResource
 {
   private static final Logger LOGGER = LoggerFactory.getLogger(PeopleResourceImpl.class);
@@ -63,6 +65,8 @@ public class PeopleResourceImpl implements PeopleResource
   {
     LOGGER.info("Attempting to retrieve a person with id " + pid); 
     Person p = entityManager_.find(Person.class, pid);
+    LOGGER.info("Person now equals " + p); 
+
 
     if (p == null)
     {

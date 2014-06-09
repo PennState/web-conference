@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -32,7 +33,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Person
 { 
-  @Id @GeneratedValue(strategy=GenerationType.AUTO)
+  @SequenceGenerator(name="person-sequence", initialValue=10, allocationSize=100)
+  @Id @GeneratedValue(generator="person-sequence", strategy=GenerationType.AUTO)
   @Column(name="ID")
   @XmlElement(name="id")
   private long id_;
@@ -50,6 +52,11 @@ public class Person
   @XmlElementWrapper(name="telephone-number-list")
   @XmlElement(name="telephone-number")
   private List<TelephoneNumber> telephoneNumberList_ = new ArrayList<>();
+  
+  public long getId()
+  {
+    return id_;
+  }
   
   public List<Address> getAddressList()
   {
