@@ -43,10 +43,12 @@ public class Person
   
   @OneToMany(mappedBy = "person_", fetch=FetchType.EAGER)
   @XmlElementWrapper(name="address-list")
+  @XmlElement(name="address")
   private List<Address> addressList_ = new ArrayList<>();
   
   @OneToMany(mappedBy = "person_", fetch=FetchType.EAGER)
   @XmlElementWrapper(name="telephone-number-list")
+  @XmlElement(name="telephone-number")
   private List<TelephoneNumber> telephoneNumberList_ = new ArrayList<>();
   
   public List<Address> getAddressList()
